@@ -1,0 +1,20 @@
+
+<?php
+$isseller=$this->helper('Magebay\Marketplace\Helper\Data')->checkIsSeller();
+if($isseller){
+?>
+<div class="block account-nav">
+    <div class="title">
+        <strong><?php /* @escapeNotVerified */ echo __('Marketplace'); ?></strong>
+    </div>
+    <div class="content">
+        <nav class="account-nav">
+            <ul class="nav items">
+                <?php echo $block->getChildHtml();?>
+            </ul>
+        </nav>
+    </div>
+</div>
+<?php
+}
+?>

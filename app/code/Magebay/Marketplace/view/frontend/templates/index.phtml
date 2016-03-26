@@ -1,0 +1,260 @@
+<?php
+    use Magento\Framework\App\Action\Action;
+    use Magento\Framework\App\Helper\AbstractHelper;
+    use Magento\Framework\App\Config\ScopeConfigInterface;
+    use Magento\Framework\App\Helper\Context;
+    use Magento\Store\Model\ScopeInterface;
+    $_sellersCollection = $block->getSellersCollection();
+    if ($_sellersCollection->count()){
+        foreach($_sellersCollection as $item){
+    		//var_dump($item->getData());
+        }
+    } 
+//    echo $this->helper('Magebay\Marketplace\Helper\Data')->isEnabledInFrontend();
+//    echo $this->helper('Magebay\Marketplace\Helper\Data')->getCommission();
+//    echo __('This is an example module!');
+?>
+<link rel='stylesheet' type='text/css'  href='http://magento.webkul.com/Marketplace/skin/frontend/base/default/marketplace/css/wk_block.css'/>
+<div class="col-main">
+    <style type="text/css">
+    	.wk_mp_banner{
+    		background-image: url('http://magento.webkul.com/Marketplace/media/marketplace/banner/default/sell-page-banner_1.png');
+    	}	
+    </style>
+    <div class="wk_mp_design wk_mp_landingpage">
+        <div class="wk_mp_banner_container">	
+            <div class="wk_mp_banner">
+                <div class="wk_mp_header">
+                    <h1>Open Your Shop</h1>
+                    <h2>
+                        <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</span></p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate.</p>
+                    </h2>
+                    <p>
+                        <a href="<?php echo $block->getUrl(); ?>index.php/customer/account/create/">
+                            <button class="button wk_mp_landing_button">
+                                <span>
+                                    <span>
+                                        <strong>Open Your Shop</strong>
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h1 class="wk_marketplace_label">Turn Your Passion Into a Business</h1>
+        <div class="wk_mp_icon_container">
+            <div class="wk_mp_icon_wraper">
+                <div class="wk_mp_icon">
+                    <img src="http://magento.webkul.com/Marketplace/media/marketplace/icon/default/icon-register-yourself_2.png">
+                </div>
+                <span class="wk_marketplace_label_span">Register Yourself</span>
+            </div>
+            <div class="wk_mp_icon_wraper">
+                <div class="wk_mp_icon">
+                    <img src="http://magento.webkul.com/Marketplace/media/marketplace/icon/default/icon-add-products_2.png">
+                </div>
+                <span class="wk_marketplace_label_span">Add Products</span>
+            </div>
+            <div class="wk_mp_icon_wraper">
+                <div class="wk_mp_icon">
+                    <img src="http://magento.webkul.com/Marketplace/media/marketplace/icon/default/icon-start-selling_2.png">
+                </div>
+                <span class="wk_marketplace_label_span">Start Selling</span>
+            </div>
+            <div class="wk_mp_icon_wraper">
+                <div class="wk_mp_icon">
+                    <img src="http://magento.webkul.com/Marketplace/media/marketplace/icon/default/icon-collect-revenues_2.png">
+                </div>
+                <span class="wk_marketplace_label_span">Generate Revenues</span>
+            </div>
+        </div>
+        <h1 class="wk_marketplace_label">Sellers with Taste</h1>
+        <div class="wk_mp_landing_sellers_container">
+            <div class="wk_mp_landing_sellers_wraper ">
+                <div class="wk_mp_landing_sellers">
+                    <div class="wk_mp_landing_sellers_img1">
+                        <a title="White Shirt" href="http://magento.webkul.com/Marketplace/index.php/white-shirt.html">							
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/1/6/16.jpg">
+                        </a>
+                        <a title="Blue Coat" href="http://magento.webkul.com/Marketplace/index.php/blue-coat.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled-2_1.png">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_img2">
+                        <a title="config pro" href="http://magento.webkul.com/Marketplace/index.php/config-pro-378.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/260x130/9df78eab33525d08d6e5fb8d27136e95/7/_/7.jpg">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_logo">
+                        <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/webkul"><img src="http://magento.webkul.com/Marketplace/media/avatar/Webkul-Logo978105224341193611.png"></a>
+                    </div>					
+                    <div class="wk_mp_landing_sellers_details">
+                        <div>
+                            <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/webkul">
+                                <strong>Garment Shop</strong>
+                            </a>
+                        </div>
+                        <div>5 Products</div>
+                        <a href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/collection/garmentstore">
+                            <button title="View Seller's Collection" class="button">
+                                <span>
+                                    <span>
+                                        View All									
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="wk_mp_landing_sellers_wraper ">
+                <div class="wk_mp_landing_sellers">
+                    <div class="wk_mp_landing_sellers_img1">
+                        <a title="Laptop ci5/4th gen/1TB/8GB" href="http://magento.webkul.com/Marketplace/index.php/laptop-ci5-4th-gen-1tb-8gb.html">							
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/l/a/laptop-1.png">
+                        </a>
+                        <a title="Nikon Camera 8X zoom" href="http://magento.webkul.com/Marketplace/index.php/nikon-camera-8x-zoom.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/i/m/img-2.png">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_img2">
+                        <a title="Laptop ci3/4th Gen/500GB" href="http://magento.webkul.com/Marketplace/index.php/laptop-ci3-4th-gen-500gb.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/260x130/9df78eab33525d08d6e5fb8d27136e95/i/m/img-3_2.png">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_logo">
+                        <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/profile/electronicsshop"><img src="http://magento.webkul.com/Marketplace/media/avatar/seller-d24229175.jpg"></a>
+                    </div>					
+                    <div class="wk_mp_landing_sellers_details">
+                        <div>
+                            <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/profile/electronicsshop">
+                                <strong>Electronics Shop</strong>
+                            </a>
+                        </div>
+                        <div>4 Products</div>
+                        <a href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/collection/electronicsshop">
+                            <button title="View Seller's Collection" class="button">
+                                <span>
+                                    <span>
+                                        View All									
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="wk_mp_landing_sellers_wraper wk_last_seller">
+                <div class="wk_mp_landing_sellers">
+                    <div class="wk_mp_landing_sellers_img1">
+                        <a title="Tree Art" href="http://magento.webkul.com/Marketplace/index.php/tree-art.html">							
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/t/r/tree-art.png">
+                        </a>
+                        <a title="Cubes Atr" href="http://magento.webkul.com/Marketplace/index.php/cubes-atr.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/130x130/9df78eab33525d08d6e5fb8d27136e95/c/u/cubes-art.png">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_img2">
+                        <a title="Decoration Light Bulb" href="http://magento.webkul.com/Marketplace/index.php/decoration-light-bulb.html">
+                            <img src="http://magento.webkul.com/Marketplace/media/catalog/product/cache/1/thumbnail/260x130/9df78eab33525d08d6e5fb8d27136e95/d/e/decoration-iight-bulb_1.png">
+                        </a>
+                    </div>
+                    <div class="wk_mp_landing_sellers_logo">
+                        <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/profile/decorshop"><img src="http://magento.webkul.com/Marketplace/media/avatar/seller-a49219183.jpg"></a>
+                    </div>					
+                    <div class="wk_mp_landing_sellers_details">
+                        <div>
+                            <a title="View Seller's Shop" href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/profile/decorshop">
+                                <strong>Home Decor Shop</strong>
+                            </a>
+                        </div>
+                        <div>5 Products</div>
+                        <a href="http://magento.webkul.com/Marketplace/index.php/marketplace/seller/collection/decorshop">
+                            <button title="View Seller's Collection" class="button">
+                                <span>
+                                    <span>
+                                        View All									
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wk_mp_label3_container">
+            <div class="wk_mp_label3">
+                <h3 class="wk_marketplace_label_about">More then 500 shop owners have joined us last month</h3>
+                <a href="<?php echo $block->getUrl(); ?>marketplace/seller/list/">
+                    <button class="button wk_mp_landing_button">
+                        <span>
+                            <span>
+                                View All						
+                            </span>
+                        </span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <h1 class="wk_marketplace_label">Why to sell with us</h1>
+        <div class="wk_mp_landing_about">
+            <div style="width: 100%; display: inline-block; padding-bottom: 30px;">
+                <div style="width: 29%; float: left; padding-right: 10px;">
+                    <img alt="" src="http://magento.webkul.com/Marketplace/media/wysiwyg/landingpage/img-customize-seller-profile.png" style="width: 100%;">
+                </div>
+                <div style="width: 69%; float: left; padding-right: 10px; text-align: justify;">
+                    <h1 style="color: #636363;">Easily Customize your seller profile</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>&nbsp;</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div style="width: 100%; display: inline-block; padding-bottom: 30px;">
+                <div style="width: 69%; float: left; padding-right: 10px; text-align: justify;">
+                    <h1 style="color: #636363;">Add Unlimited Products</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>&nbsp;</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div style="width: 29%; float: left; padding-right: 10px;"><img alt="" src="http://magento.webkul.com/Marketplace/media/wysiwyg/landingpage/img-add-unlimited-products.png" style="width: 100%;"></div>
+            </div>
+            <div style="width: 100%; display: inline-block; padding-bottom: 30px;">
+                <div style="width: 29%; float: left; padding-right: 10px;">
+                    <img alt="" src="http://magento.webkul.com/Marketplace/media/wysiwyg/landingpage/img-connect-to-your-social-profile.png" style="width: 100%;">
+                </div>
+                <div style="width: 69%; float: left; padding-right: 10px; text-align: justify;">
+                    <h1 style="color: #636363;">Connect to your social profile</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>&nbsp;</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div style="width: 100%; display: inline-block; padding-bottom: 30px;">
+                <div style="width: 69%; float: left; padding-right: 10px; text-align: justify;">
+                    <h1 style="color: #636363;">Buyer can ask you a question</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>&nbsp;</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div style="width: 29%; float: left; padding-right: 10px;"><img alt="" src="http://magento.webkul.com/Marketplace/media/wysiwyg/landingpage/img-buyers-can-ask-a-question.png" style="width: 100%;"></div>
+            </div>
+            <h1>Really Easy to Setup and Customize</h1>
+            <p><img alt="" src="http://magento.webkul.com/Marketplace/media/wysiwyg/landingpage/marketplace-flow.png" style="width: 80%; margin: 0px 8%;"></p>
+            <h1 style="color: #636363; padding: 30px; text-align: center;">OPEN YOUR ONLINE SHOP WITH US &amp; GET EXPLORE THE NEW WORLD WITH MORE THEN MILLIONS OF SHOPPERS</h1>	
+        </div>
+        <a href="<?php echo $block->getUrl(); ?>index.php/customer/account/create/">
+            <button class="button wk_mp_landing_button">
+                <span>
+                    <span>
+                        <strong>Open Your Shop</strong>
+                    </span>
+                </span>
+            </button>
+        </a>
+    </div>                
+</div>

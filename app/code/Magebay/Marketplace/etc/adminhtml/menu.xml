@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Magebay_Marketplace::main_menu" title="Market Place" module="Magebay_Marketplace" sortOrder="20" resource="Magebay_Marketplace::marketplace" />
+        <add id="Magebay_Marketplace::manage_products" title="Manage Seller's Product" module="Magebay_Marketplace" sortOrder="1" parent="Magebay_Marketplace::main_menu" action="marketplace/products/index" resource="Magebay_Marketplace::manage_products" />
+        <add id="Magebay_Marketplace::manage_sellers" title="Manage Seller's" module="Magebay_Marketplace" sortOrder="2" parent="Magebay_Marketplace::main_menu" action="marketplace/sellers/index" resource="Magebay_Marketplace::manage_sellers" />
+        <add id="Magebay_Marketplace::manage_commission" title="Manage Commission" module="Magebay_Marketplace" sortOrder="3" parent="Magebay_Marketplace::main_menu" action="marketplace/commission/index" resource="Magebay_Marketplace::manage_commission" />
+        <add id="Magebay_Marketplace::manage_transactions" title="Manage Transactions" module="Magebay_Marketplace" sortOrder="4" parent="Magebay_Marketplace::main_menu" action="marketplace/transactions/index" resource="Magebay_Marketplace::manage_transactions" />
+        <add id="Magebay_Marketplace::manage_reviews" title="Manage Reviews and Ratings" module="Magebay_Marketplace" sortOrder="5" parent="Magebay_Marketplace::main_menu" action="marketplace/reviews/index" resource="Magebay_Marketplace::manage_reviews" />
+        <add id="Magebay_Marketplace::manage_uploadproducts" title="Upload Products" module="Magebay_Marketplace" sortOrder="6" parent="Magebay_Marketplace::main_menu" action="marketplace/uploadproducts/index" resource="Magebay_Marketplace::manage_uploadproducts" />
+        <add id="Magebay_Marketplace::configuration" title="Configurations" module="Magebay_Marketplace" sortOrder="7" parent="Magebay_Marketplace::main_menu" action="adminhtml/system_config/edit/section/marketplace" resource="Magebay_Marketplace::configuration" />
+    </menu>
+</config>

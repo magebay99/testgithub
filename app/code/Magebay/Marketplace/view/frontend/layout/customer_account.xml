@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+	<head>    
+		<css src="Magebay_Marketplace::css/marketplace.css" />		
+	</head>    
+	<body>        
+        <referenceBlock name="customer_account_navigation_block">
+			<block class="Magebay\Marketplace\Block\Html\Links" name="magebay.customer_account_navigation" before="customer_account_navigation"  template="Magebay_Marketplace::account/navigation.phtml">
+				<block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-account-marketplace-dashboard">
+					<arguments>
+						<argument name="label" xsi:type="string" translate="true">Marketplace Dashboard</argument>
+						<argument name="path" xsi:type="string">#</argument>
+					</arguments>
+				</block>
+				<block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-account-seller-profile">
+					<arguments>
+						<argument name="label" xsi:type="string" translate="true">Seller Profile</argument>
+						<argument name="path" xsi:type="string">marketplace/seller/account</argument>
+					</arguments>
+				</block>
+				<block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-create-attribute">
+					<arguments>
+						<argument name="label" xsi:type="string" translate="true">Create Attribute</argument>
+						<argument name="path" xsi:type="string">marketplace/product_attribute/news</argument>
+					</arguments>
+				</block>            				
+				<block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-create-product">
+					<arguments>
+						<argument name="label" xsi:type="string" translate="true">New Product</argument>
+						<argument name="path" xsi:type="string">marketplace/product/create</argument>
+					</arguments>
+				</block>            
+			</block>            
+        </referenceBlock>
+    </body>
+</page>

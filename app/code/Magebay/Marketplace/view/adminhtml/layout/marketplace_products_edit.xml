@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etcpage_configuration.xsd">
+    <head>
+        <css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magebay\Marketplace\Block\Adminhtml\Products\Edit" name="magebay_marketplace_products.products.edit" />
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magebay\Marketplace\Block\Adminhtml\Products\Edit\Tabs" name="magebay_marketplace_products.products.edit.tabs">
+                <block class="Magebay\Marketplace\Block\Adminhtml\Products\Edit\Tab\Main" name="magebay_marketplace_products.products.edit.tab.main"/>                
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">magebay_marketplace_products.products.edit.tab.main</argument>
+                </action>                
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,146 @@
+<?php
+
+?>
+<div class="block block-attribute ">
+	<div class="block block-content">
+		<form method="post" action="<?php echo $block->getUrl('marketplace/product_attribute/editPost') ?>" class="form form-addnew-attribute" id="form-seller-attr-new" enctype="multipart/form-data" >
+			<?php echo $block->getBlockHtml('formkey')?>
+			<fieldset id="associate-product" class="fieldset info">
+				<legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Create Attribute for Configurable Products') ?></span></legend>			
+				<div id="cust" class="fieldset form-list">
+					<div class="field required attributecode">
+						<label class="label" ><span><?php echo __('Attribute Code : ') ?></span></label>
+						<div class="control">
+							<input type="text" id="" name="attribute_code" class="validate-code validate-length maximum-length-30 input-text required-entry" aria-required="true">
+						</div>
+					</div>			
+					
+					<div class="field required attributecode">
+						<label class="label" ><span><?php echo __('Attribute Label : ') ?></span></label>
+						<div class="control">
+							<input type="text" id="" name="attribute_label" class="validate-label validate-length maximum-length-30 input-text required-entry" aria-required="true">
+						</div>
+					</div>
+					
+					<div class="field required cataloginputtype">
+						<label class="label"><span><?php echo __('Catalog Input Type : ') ?></span></label>
+						<div class="control">
+							<select class="select" id="frontend_input" name="frontend_input" title="<?php echo __('Catalog Input Type') ?>" aria-required="true" >
+								<option value=""><?php echo __('Please Select') ?></option>
+								<option value="select"><?php echo __('Dropdown') ?></option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="field required valrequired">
+						<label class="label"><span><?php echo __('Values Required : ') ?></span></label>
+						<div class="control">
+							<select name="is_required" class="select" aria-required="true" title="<?php echo __('Values Required') ?>" >
+								<option value="1" ><?php echo __('Yes') ?></option>
+								<option value="0"><?php echo __('No') ?></option>
+							</select>
+						</div>
+					</div>					
+				</div>
+				<div class="field block-button">
+					<button type="submit" class="button" title="<?php echo __('Save Attribute') ?>" >
+						<span><span><?php echo __('Save Attribute') ?></span></span>
+					</button>
+				</div>				
+			</fieldset>
+		</form>
+	</div>
+</div>
+<script>
+require([
+	"jquery",
+	"mage/mage"
+], function(jQuery){
+	jQuery.noConflict();
+	var dataForm = jQuery('#form-seller-attr-new');
+	dataForm.mage('validation', {});
+
+	var fcop=0;
+	var count=0;
+
+	var nextopcresort=new Array();
+	jQuery("button#add_new_defined_option").click( function() { 
+		jQuery('#cust').show();
+	});	
+	jQuery("button#save").click( function() { 
+		if(jQuery('#apply_to').is(":visible")){
+			jQuery('#protype').attr('disabled', 'disabled');
+		}
+	});
+	var attr_options=0,select=0;
+	jQuery("#frontend_input").click( function() {
+		if(attr_options!=0 && select!=1){
+			attr_options=jQuery(".option-product-box").clone();			
+		}
+	});
+	
+	jQuery("#associate-product").delegate('.optionslist-head input','focusout',function(){
+		jQuery(this).attr('value',jQuery(this).val());
+	});
+	
+	jQuery("#associate-product").delegate('.optionslist-head input[type="checkbox"]','focusout',function(){
+		if(jQuery(this).is(":checked"))
+			jQuery(this).attr('checked','checked');
+		else
+			jQuery(this).removeAttr("checked");
+	});
+
+	jQuery("#frontend_input").change( function() { 
+		
+		jQuery('.is_required').show();
+		jQuery(".option-product-box").remove();
+		if(jQuery("#frontend_input").val()== "multiselect" || jQuery("#frontend_input").val() == "select")		{
+			if(attr_options==0){
+				var headone=jQuery('<div/>').addClass("option-product-box")
+							.append(jQuery('<ul/>').addClass("optionslist-head ul_first")
+								.append(jQuery('<li/>').text("Admin"))
+								.append(jQuery('<li/>').text("Default Store View"))
+								.append(jQuery('<li/>').text("Position"))
+								.append(jQuery('<li/>').text("Is Default"))
+								.append(jQuery('<li/>')
+								.append(jQuery('<button/>').attr({type:'button', value:" Add Option",title:"Add Option",class:"attroptions button"}).append("<span><span>Add Option</span></span>"))))
+				jQuery('#cust').append(headone);
+				jQuery(".attroptions").trigger("click");
+				attr_options++;
+			}else{
+				jQuery('#cust').append(jQuery('<div/>').addClass("option-product-box").append(attr_options.html()));
+			}			
+		}	
+		else{
+			select=1;
+		}
+	});	
+
+	jQuery("#associate-product").delegate(".deleteopt","click",function(){
+		jQuery(this).parents(".optionslist-head").remove();
+	});
+
+	jQuery("#associate-product").delegate(".attroptions","click",function(){
+		var addcust = jQuery('<ul/>').addClass('optionslist-head')
+						.append(jQuery('<li/>')
+								.append(jQuery('<input/>').attr({type:'text',class:"required-entry widthinput",name:'attroptions['+fcop+'][admin]'})))
+						.append(jQuery('<li/>')
+								.append(jQuery('<input/>').attr({type:'text',class:"widthinput",name:'attroptions['+fcop+'][store]'})))
+						.append(jQuery('<li/>')
+								.append(jQuery('<input/>').attr({type:'text',class:"widthinput",name:'attroptions['+fcop+'][position]'})))
+						.append(jQuery('<li/>')
+								.append(jQuery('<input/>').attr({type:'radio',class:"widthinput1",value:fcop,checked:fcop==0?true:false,name:'attroptions[isdefault][]'})))
+						.append(jQuery('<li/>')
+								.append(jQuery('<button/>').attr({type:'button', value:" Delete Row",title:"Delete Row",class:"deleteopt button"}).append("<span><span>Delete</span></span>")));
+		jQuery('.option-product-box').append(addcust);
+		fcop++;
+	});	
+	
+	jQuery(document).on('change','.widthinput',function(){
+		var validt = jQuery(this).val();
+		var regex = /(<([^>]+)>)/ig;
+		var mainvald = validt .replace(regex, "");
+		jQuery(this).val(mainvald);	
+	});
+});
+</script>

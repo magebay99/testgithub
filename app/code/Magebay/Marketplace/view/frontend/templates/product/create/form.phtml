@@ -1,0 +1,49 @@
+<?php
+
+?>
+<div class="block block-newproduct ">
+	<div class="block block-content">
+		<form method="post" action="<?php echo $block->getUrl('marketplace/product/create') ?>" class="form form-addnew-product" id="form-seller-attr-newproduct" enctype="multipart/form-data" >
+			<?php echo $block->getBlockHtml('formkey')?>
+			<fieldset id="associate-product" class="fieldset info">
+				<legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Add New Product') ?></span></legend>			
+				<div class="fieldset form-list">
+					<div class="field required attributeset">
+						<label class="label" ><span><?php echo __('Attribute Set : ') ?></span></label>
+						<div class="control">
+							<select name="set" class="required-entry" aria-required="true">
+								<option value="4"><?php echo __('Default') ?></option>
+							</select>
+						</div>
+					</div>			
+					<div class="field required producttype">
+						<label class="label"><span><?php echo __('Product Type') ?></span></label>
+						<div class="control">
+							<select name="type" class="required-entry" aria-required="true">
+								<option value="simple"><?php echo __('Simple') ?></option>
+								<option value="downloadable"><?php echo __('Downloadable') ?></option>
+								<option value="virtual"><?php echo __('Virtual') ?></option>
+								<option value="configurable"><?php echo __('Configurable') ?></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="field block-button">
+					<button type="submit" class="button" title="<?php echo __('Continue') ?>" >
+						<span><span><?php echo __('Continue') ?></span></span>
+					</button>
+				</div>				
+			</fieldset>
+		</form>
+	</div>
+</div>
+<script>
+	    require([
+	        "jquery",
+	        "mage/mage"
+	    ], function($){
+	        var dataForm = $('#form-seller-attr-newproduct');
+	        dataForm.mage('validation', {});
+	    });
+	</script>
+</script>
